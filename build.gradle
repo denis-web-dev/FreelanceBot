@@ -8,6 +8,14 @@ version '1.0-SNAPSHOT'
 
 mainClassName = 'org.example.Main'
 
+compileJava.options.encoding = 'UTF-8'
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 repositories {
     mavenCentral()
 }
@@ -17,7 +25,10 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'com.github.pengrad:java-telegram-bot-api:6.7.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
 }
+
 
 test {
     useJUnitPlatform()
